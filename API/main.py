@@ -45,7 +45,7 @@ if __name__ == "__main__":
 
 # --------------------- LOGS -------------------------
 
-ACTION_FILE = "user_actions.json"
+ACTION_FILE = "data/user_actions.json"
 
 def load_actions():
     if not os.path.exists(ACTION_FILE):
@@ -101,7 +101,7 @@ df_fake['id_patient'] = df_fake['id_patient'].astype(str)
 
 df_all_patients = pd.concat([df_full, df_fake], ignore_index=True).drop_duplicates(subset=['id_patient'])
 
-model = joblib.load("code/model.joblib")
+model = joblib.load("scripts/model.joblib")
 
 cols_to_drop = [
     'id_patient', 'days_from_diag', 'contact', 'bl_comorb_CVA', 'bl_comorb_connect',
