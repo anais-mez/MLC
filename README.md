@@ -26,24 +26,24 @@ To explore these questions, this tool presents SHAP values through interactive c
 ##  🏗 Project Structure
 
 ```
-project-root/
-├── API/ # FastAPI backend
-│ ├── main.py # API routes
-│ ├── scripts/ # Model & SHAP logic (model.joblib, etc.)
-│ ├── data/ # Dataset, Mapping & Logs
+MLC/
+├── API/ # 🧠 FastAPI backend
+│ ├── main.py # Main API routes
+│ ├── scripts/ # ML model, SHAP logic (e.g. model.joblib)
+│ ├── data/ # Dataset, mapping files, user logs
 │ └── requirements.txt # Python dependencies
 │
-├── MLC_enriched/ # React frontend, App with explanations (Vite)
-│ ├── src/
-│ ├── public/
+├── MLC_enriched/ # 🟢 React app with SHAP explanations (Vite)
+│ ├── src/ # Source files (components, views, logic)
+│ ├── public/ # Static assets
 │ └── package.json # JS dependencies
 │
-├── MLC_simplified/ # React frontend, App with just SHAP (Vite)
-│ ├── src/
-│ ├── public/
+├── MLC_simplified/ # 🟠 React app with basic SHAP only (Vite)
+│ ├── src/ # Source files
+│ ├── public/ # Static assets
 │ └── package.json # JS dependencies
 │
-└── README.md # You're here :)
+└── README.md # You're here 🙂
 ```
 
 ---

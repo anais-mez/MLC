@@ -135,11 +135,11 @@ export default function PatientList({ onSelectPatient, patientStatuses }: Patien
                         onChange={(e) => setAgeMaxInput(e.target.value)}
                     />
                     <div className="research-buttons">
-                        <button onClick={handleSearch} className="search-button">
-                            Search
-                        </button>
                         <button onClick={resetFilters} className="reset-filters">
                             Reset
+                        </button>
+                        <button onClick={handleSearch} className="search-button">
+                            Search
                         </button>
                     </div>
                 </div>
