@@ -1,5 +1,6 @@
 import "../style/warningDivergingBarChart.css";
 import { useEffect, useState } from "react";
+import { logUserAction } from "../utils/logger";
 import { Bar } from 'react-chartjs-2';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import Loader from "./Loader";
@@ -32,6 +33,15 @@ const WarningShapChart = ({ selectedPatientId }: Props) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
+  const handleTabChange = (tabName: string) => {
+    setActiveTab(tabName);
+
+    logUserAction("SHAP_Tab_Change", {
+      selectedTab: tabName,
+      patientId: selectedPatientId,
+    });
+  };
+
   const ErrorMessage = ({ message }: { message: string }) => (
     <div className="error-message">
       <h3>No SHAP explanation available</h3>
@@ -48,9 +58,9 @@ const WarningShapChart = ({ selectedPatientId }: Props) => {
     const token = localStorage.getItem("token");
 
     fetch(`http://127.0.0.1:8000/shap/${selectedPatientId}`, {
-        headers: {
-            'Authorization': `Bearer ${token}`
-        }
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
     })
       .then((res) => {
         if (!res.ok) throw new Error("Error API");
@@ -287,19 +297,19 @@ const WarningShapChart = ({ selectedPatientId }: Props) => {
       <div className="tabs">
         <button
           className={activeTab === "chart1" ? "tab-active" : "tab"}
-          onClick={() => setActiveTab("chart1")}
+          onClick={() => handleTabChange("chart1")}
         >
           Instructions
         </button>
         <button
           className={activeTab === "chart2" ? "tab-active" : "tab"}
-          onClick={() => setActiveTab("chart2")}
+          onClick={() => handleTabChange("chart2")}
         >
           Chart
         </button>
         <button
           className={activeTab === "chart3" ? "tab-active" : "tab"}
-          onClick={() => setActiveTab("chart3")}
+          onClick={() => handleTabChange("chart3")}
         >
           More Info
         </button>
