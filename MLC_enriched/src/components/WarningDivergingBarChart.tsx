@@ -187,22 +187,33 @@ const WarningShapChart = ({ selectedPatientId }: Props) => {
       },
       tooltip: {
         callbacks: {
-          label: (context: any) => {
-            const index = context.dataIndex;
+          title: (context: any) => {
+            const index = context[0].dataIndex;
             const feature = sortedFeatures[index];
+
+            const rawValue =  feature.meta.split(':')[1]?.trim();
+            const roundedValue = rawValue ? parseFloat(rawValue).toFixed(2) : '';
+
+            return `${feature.label}: ${roundedValue}`;
+          },
+          label: (context: any) => {
             const val = context.parsed.x;
 
-            // Add a special note for a feature
-            const extra =
-              feature.label === 'Body Temperature'
-                ? '\n⚠️ Indicator not to be taken into account'
-                : '';
+            const isPositive = val >= 0;
+            const contributionText = isPositive
+              ? 'That reduces the predicted risk'
+              : 'That increases the predicted risk';
+
+            const causalityWarning = 'SHAP explains the model\'s behavior, not causality.';
+            const individualScopeWarning = 'This explanation is specific to this patient and may not apply to others.';
+            const interpretationWarning = '⚠️ High or low SHAP values do not mean the feature value itself is high or low, or that changing it will improve the patient\'s condition.';
 
             return [
-              `Feature: ${feature.label}`,
               `SHAP Value: ${val >= 0 ? '+' : ''}${val.toFixed(2)}`,
-              `Info: ${feature.meta}`,
-              extra
+              contributionText,
+              interpretationWarning,
+              causalityWarning,
+              individualScopeWarning
             ];
           },
         },
@@ -225,8 +236,8 @@ const WarningShapChart = ({ selectedPatientId }: Props) => {
               <li>📊 <strong>Each bar</strong> represents one feature of the individual</li>
               <li>➡️ <strong>Bar to the right</strong> = <strong>increases the risk</strong> (harmful effect)</li>
               <li>⬅️ <strong>Bar to the left</strong> = <strong>reduces the risk</strong> (protective effect)</li>
-              <li>🟩 <strong>Green</strong> = contributes to lowering the predicted risk</li>
-              <li>🟧 <strong>Orange</strong> = contributes to increasing the predicted risk</li>
+              <li><span style={{ color: '#38502b', fontSize: '22px' }}>■</span> <strong>Green</strong> = contributes to lowering the predicted risk</li>
+              <li><span style={{ color: '#b4612A', fontSize: '22px' }}>■</span> <strong>Orange</strong> = contributes to increasing the predicted risk</li>
             </ul>
 
             <p className="info-note">
