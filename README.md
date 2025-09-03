@@ -25,6 +25,7 @@ To explore these questions, this tool presents SHAP values through interactive c
 
 ##  🏗 Project Structure
 
+```
 project-root/
 ├── API/ # FastAPI backend
 │ ├── main.py # API routes
@@ -43,6 +44,7 @@ project-root/
 │ └── package.json # JS dependencies
 │
 └── README.md # You're here :)
+```
 
 ---
 
