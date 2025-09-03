@@ -1,0 +1,79 @@
+.search-input-containter-Patient-ID,
+.search-input-containter-Patient-CPR {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  width: 95%;
+  margin: 5px auto;
+}
+
+.search-input-containter-Vitals {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  width: 75%;
+  margin: 5px auto;
+}
+
+.search-input-containter-Patient-ID .search-title,
+.search-input-containter-Patient-CPR .search-title {
+  background-color: var(--green);
+}
+
+.search-input-containter-Vitals .search-title {
+  background-color: var(--grey-70);
+}
+
+.search-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #ffffff;
+  width: 35%;
+  height: 30px;
+  border-radius: 5px 0 0 5px;
+}
+
+.search-input-containter-Patient-ID .search-input,
+.search-input-containter-Patient-CPR .search-input {
+  background-color: var(--grey-70);
+}
+
+.search-input-containter-Vitals .search-input {
+  background-color: var(--grey);
+}
+
+.search-input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 55%;
+  height: 30px;
+  border-radius: 0 5px 5px 0;
+}
+
+.search-input img {
+  width: 12%;
+  height: auto;
+  margin-left: 5px;
+  padding: 5px;
+}
+
+.search-input input {
+  width: 80%;
+  border: none;
+  padding: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 120pxs;
+  background-color: transparent;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+}
