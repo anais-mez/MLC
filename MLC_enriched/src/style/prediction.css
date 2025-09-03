@@ -1,0 +1,25 @@
+.prediction-container {
+  width: 67%;
+  height: 96vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.prediction-AI {
+  width: 95%;
+  height: 82%;
+  background-color: var(--grey);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.prediction-AI h1 {
+  color: var(--green);
+  margin: 1%;
+  font-size: 28px;
+}
