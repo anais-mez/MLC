@@ -1,0 +1,12 @@
+{
+  "anais": [
+    {
+      "action": "login_success",
+      "timestamp": "2025-09-03T08:00:35.442Z",
+      "details": {
+        "appVersion": "simplified",
+        "user": "anais"
+      }
+    }
+  ]
+}
