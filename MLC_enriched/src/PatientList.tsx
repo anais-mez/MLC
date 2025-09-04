@@ -101,93 +101,91 @@ export default function PatientList({ onSelectPatient, patientStatuses }: Patien
 
     return (
         <div className="home-page">
-            <div className='table-container'>
-                <div className="nav-filters">
-                    <h4>Filters</h4>
-                    <input
-                        type="text"
-                        placeholder="Search by ID"
-                        value={searchIdInput}
-                        onChange={(e) => setSearchIdInput(e.target.value)}
-                    />
-                    <input
-                        type="number"
-                        placeholder="Minimum Age"
-                        value={ageMinInput}
-                        onChange={(e) => setAgeMinInput(e.target.value)}
-                    />
-                    <input
-                        type="number"
-                        placeholder="Maximum Age"
-                        value={ageMaxInput}
-                        onChange={(e) => setAgeMaxInput(e.target.value)}
-                    />
-                    <div className="research-buttons">
-                        <button onClick={resetFilters} className="reset-filters">
-                            Reset
-                        </button>
-                        <button onClick={handleSearch} className="search-button">
-                            Search
-                        </button>
-                    </div>
+            <div className="nav-filters">
+                <h4>Filters</h4>
+                <input
+                    type="text"
+                    placeholder="Search by ID"
+                    value={searchIdInput}
+                    onChange={(e) => setSearchIdInput(e.target.value)}
+                />
+                <input
+                    type="number"
+                    placeholder="Minimum Age"
+                    value={ageMinInput}
+                    onChange={(e) => setAgeMinInput(e.target.value)}
+                />
+                <input
+                    type="number"
+                    placeholder="Maximum Age"
+                    value={ageMaxInput}
+                    onChange={(e) => setAgeMaxInput(e.target.value)}
+                />
+                <div className="research-buttons">
+                    <button onClick={resetFilters} className="reset-filters">
+                        Reset
+                    </button>
+                    <button onClick={handleSearch} className="search-button">
+                        Search
+                    </button>
                 </div>
-                <div className="patient-list-page">
-                    <table className="patient-list-table">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Age</th>
-                                <th>Status</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {patients.map((patient) => {
-                                const status = patientStatuses[patient.id_patient] || 'not_seen';
+            </div>
+            <div className="patient-list-page">
+                <table className="patient-list-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Age</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {patients.map((patient) => {
+                            const status = patientStatuses[patient.id_patient] || 'not_seen';
 
-                                let statusLabel = '';
-                                let statusClass = '';
+                            let statusLabel = '';
+                            let statusClass = '';
 
-                                switch (status) {
-                                    case 'seen':
-                                        statusLabel = '✅ Seen';
-                                        statusClass = 'status-seen';
-                                        break;
-                                    case 'in_progress':
-                                        statusLabel = '⏳ In progress';
-                                        statusClass = 'status-in-progress';
-                                        break;
-                                    case 'not_seen':
-                                        statusLabel = '📥 Not seen';
-                                        statusClass = 'status-not-seen';
-                                        break;
-                                }
+                            switch (status) {
+                                case 'seen':
+                                    statusLabel = '✅ Seen';
+                                    statusClass = 'status-seen';
+                                    break;
+                                case 'in_progress':
+                                    statusLabel = '⏳ In progress';
+                                    statusClass = 'status-in-progress';
+                                    break;
+                                case 'not_seen':
+                                    statusLabel = '📥 Not seen';
+                                    statusClass = 'status-not-seen';
+                                    break;
+                            }
 
-                                return (
-                                    <tr key={patient.id_patient}>
-                                        <td>{patient.id_patient}</td>
-                                        <td>{typeof patient.age === 'number' ? Math.trunc(patient.age) : patient.age}</td>
-                                        <td><span className={statusClass}>{statusLabel}</span></td>
-                                        <td>
-                                            <button onClick={() => handlePatientClick(patient.id_patient)}>
-                                                View Details
-                                            </button>
-                                        </td>
-                                    </tr>
-                                )
-                            })}
-                        </tbody>
-                    </table>
-                    {patients.length === 0 && (
-                        <p style={{ textAlign: 'center', marginTop: '1rem', color: '#555' }}>
-                            No patients found. Try adjusting your filters.
-                        </p>
-                    )}
-                    <div className="pagination-controls">
-                        <button onClick={() => setPage((p) => Math.max(0, p - 1))} disabled={page === 0}>◀</button>
-                        <span>{page + 1} / {Math.ceil(total / limit)}</span>
-                        <button onClick={() => setPage((p) => (p + 1 < total / limit ? p + 1 : p))} disabled={(page + 1) * limit >= total}>▶</button>
-                    </div>
+                            return (
+                                <tr key={patient.id_patient}>
+                                    <td>{patient.id_patient}</td>
+                                    <td>{typeof patient.age === 'number' ? Math.trunc(patient.age) : patient.age}</td>
+                                    <td><span className={statusClass}>{statusLabel}</span></td>
+                                    <td>
+                                        <button onClick={() => handlePatientClick(patient.id_patient)}>
+                                            View Details
+                                        </button>
+                                    </td>
+                                </tr>
+                            )
+                        })}
+                    </tbody>
+                </table>
+                {patients.length === 0 && (
+                    <p style={{ textAlign: 'center', marginTop: '1rem', color: '#555' }}>
+                        No patients found. Try adjusting your filters.
+                    </p>
+                )}
+                <div className="pagination-controls">
+                    <button onClick={() => setPage((p) => Math.max(0, p - 1))} disabled={page === 0}>◀</button>
+                    <span>{page + 1} / {Math.ceil(total / limit)}</span>
+                    <button onClick={() => setPage((p) => (p + 1 < total / limit ? p + 1 : p))} disabled={(page + 1) * limit >= total}>▶</button>
                 </div>
             </div>
         </div>

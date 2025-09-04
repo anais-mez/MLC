@@ -26,33 +26,28 @@ export default function Navbar({ selectedPatientId, setSelectedPatientId }: Navb
         <nav className="navbar">
             {selectedPatientId ? (
                 <>
+                    <div className='column-50'>
+                        <button className="return-button" onClick={() => {
+                            logUserAction("return_to_patient_list", { from_patient_id: selectedPatientId });
+                            setSelectedPatientId(null);
+                        }}>
+                            BACK
+                        </button>
+                    </div>
                     <h1>Diagnosis: Metastatic Lung Cancer</h1>
-                    <div className="buttons">
-                        <div className='column-50'>
-                            <button className="return-button" onClick={() => {
-                                logUserAction("return_to_patient_list", { from_patient_id: selectedPatientId });
-                                setSelectedPatientId(null);
-                            }}>
-                                BACK
-                            </button>
-                        </div>
-                        <div className='column-50'>
-                            <button className="logout-button" title='Logout' onClick={handleLogout}>
-                                LOG OUT
-                            </button>
-                        </div>
+                    <div className='column-50'>
+                        <button className="logout-button" title='Logout' onClick={handleLogout}>
+                            LOG OUT
+                        </button>
                     </div>
                 </>
             ) : (
                 <>
                     <h1>List of Patients</h1>
-                    <div className="buttons">
-                        <div className='column-50'></div>
-                        <div className='column-50'>
-                            <button className="logout-button" title='Logout' onClick={handleLogout}>
-                                LOG OUT
-                            </button>
-                        </div>
+                    <div className='column-50'>
+                        <button className="logout-button" title='Logout' onClick={handleLogout}>
+                            LOG OUT
+                        </button>
                     </div>
                 </>
             )}

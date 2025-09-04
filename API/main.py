@@ -45,7 +45,7 @@ if __name__ == "__main__":
 
 # --------------------- LOGS -------------------------
 
-ACTION_FILE = "data/user_actions.json"
+ACTION_FILE = "data/logs_actions.json"
 
 def load_actions():
     if not os.path.exists(ACTION_FILE):
