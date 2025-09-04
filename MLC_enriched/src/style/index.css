@@ -1,31 +1,45 @@
 :root{
-  --green : #38502b;
+  --main : #403d39;
+  --patient-table: #8b8c89;
+  --header: #dce1e2;
+  --background: #edf2fb;
+  --reset-button: #bfc0c0;
+  --table-background: #f6fcff;
+  --table-background-alt: #e8e8e8;
+  --prediction-background: #f0f0f0;
+  --patient-table-60: #4a5653;
+
+  --main-80: color-mix(in srgb, transparent, var(--main) 80%);
+  --reset-button-80: color-mix(in srgb, transparent, var(--reset-button) 80%);
+  --patient-table-80: color-mix(in srgb, transparent, var(--patient-table) 80%);
+  --header-95: color-mix(in srgb, transparent, var(--header) 95%);
+  --header-70: color-mix(in srgb, transparent, var(--header) 70%);
+
   --orange: #b4612A;
   --red: #e01818;
-  --gris: #939480;
-  --grey: #d9d9d3;
-  --green-80: rgba(56, 80, 43, 0.8);
-  --grey-95: rgba(147, 148, 128, 0.95);
-  --grey-70: rgba(147, 148, 128, 0.7);
   --orange-80: rgba(180, 97, 42, 0.8);
   --sand: rgba(207, 198, 184, 1);
 }
 
 #root {
   width: 100%;
+  margin: 0;
+  padding: 0;
 }
+/* 
+body * {
+  margin: 0 !important;
+  padding: 0 !important;
+} */
 
 .dashboard {
-  margin-top: 80px;
   display: flex;
   flex-direction: column;
-  width: 82%;
-  height: 100%;
+  width: 100%;
 }
 
 .data-view {
   width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -35,6 +49,7 @@
 body {
   min-width: 320px;
   min-height: 100vh;
+  max-height: 100vh;
   margin: 0;
   padding: 0;
   font-family: 'Inter', sans-serif;
@@ -46,14 +61,14 @@ body {
   flex-direction: column;
   align-items: center;
   width: 60%;
-  background-color: var(--grey);
+  background-color: var(--header);
   padding: 1rem;
-  border: 1px solid var(--green);
+  border: 1px solid var(--main);
   border-radius: 5px;
 }
 
 .button-step {
-  background-color: var(--green-80);
+  background-color: var(--main-80);
   color: white;
   border: none;
   border-radius: 5px;
@@ -63,7 +78,7 @@ body {
 }
 
 .button-step:hover {
-  background-color: var(--green);
+  background-color: var(--main);
 }
 
 .step1-1 {
@@ -90,9 +105,9 @@ body {
   flex-direction: column;
   align-items: center;
   width: 60%;
-  background-color: var(--green);
+  background-color: var(--main);
   padding: 1rem;
-  border: 1px solid var(--green);
+  border: 1px solid var(--main);
   border-radius: 5px;
   color: var(--sand);
 }

@@ -34,7 +34,7 @@
 
 .advertissment p {
   font-size: 14px;
-  color: var(--green);
+  color: var(--main);
   margin-left: 10px;
 }
 
@@ -69,7 +69,7 @@
   justify-content: space-evenly;
   align-items: center;
   gap: 10px;
-  border-bottom: 1px solid var(--green);
+  border-bottom: 1px solid var(--main);
 }
 
 .tab {
@@ -79,7 +79,7 @@
   cursor: pointer;
   background-color: transparent;
   border: none;
-  color: var(--green);
+  color: var(--main);
   font-weight: 600;
   transition: background-color 0.3s;
 }
@@ -91,15 +91,15 @@
   cursor: pointer;
   background-color: transparent;
   border: none;
-  border-bottom: 3px solid var(--green);
-  color: var(--green);
+  border-bottom: 3px solid var(--main);
+  color: var(--main);
   font-weight: 600;
   transition: background-color 0.3s;
 }
 
 .tab:hover {
-  background-color: var(--green);
-  border: 1px solid var(--green);
+  background-color: var(--main);
+  border: 1px solid var(--main);
   color: white;
 }
 
@@ -110,14 +110,14 @@
 }
 
 .tab-content h3 {
-  color: var(--green);
+  color: var(--main);
   margin-top: 0;
   margin-bottom: 2%;
   font-size: 20px;
 }
 
 .tab-content h4 {
-  color: var(--green-80);
+  color: var(--main-80);
   margin-top: 2%;
   font-size: 18px;
 }
@@ -169,7 +169,7 @@
   width: 95%;
   height: 10%;
   font-size: 16px;
-  background-color: var(--grey-70);
+  background-color: var(--header-70);
   border-radius: 15px;
   display: flex;
   align-items: center;

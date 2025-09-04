@@ -15,8 +15,8 @@
     position: fixed;        
     top: 0;                 
     left: 0;     
-    background-color: var(--grey);
-    border-right: var(--green) 2px solid;
+    background-color: var(--header);
+    border-right: var(--main) 2px solid;
     z-index: 1000; 
 }
 
@@ -37,7 +37,7 @@
 .nav-filters h4 {
     width: 100%;
     text-align: center;
-    color: var(--green);
+    color: var(--main);
     margin-bottom: 2%;
 }
 
@@ -52,8 +52,8 @@
 
 .reset-filters{
     padding: 0.5rem;
-    border: 1px solid var(--grey-95);
-    background-color: var(--grey-95);
+    border: 1px solid var(--header-95);
+    background-color: var(--header-95);
     color: white;
     border-radius: 5px;
     width: 42%;
@@ -62,8 +62,8 @@
 
 .search-button{
     padding: 0.5rem;
-    border: 1px solid var(--green-80);
-    background-color: var(--green-80);
+    border: 1px solid var(--main-80);
+    background-color: var(--main-80);
     color: white;
     border-radius: 5px;
     width: 42%;
@@ -71,14 +71,14 @@
 }
 
 .reset-filters:hover{
-    border: 1px solid var(--grey-70);
-    background-color: var(--grey-70);
+    border: 1px solid var(--header-70);
+    background-color: var(--header-70);
     color: white;
 }
 
 .search-button:hover{
-    border: 1px solid var(--green);
-    background-color: var(--green);
+    border: 1px solid var(--main);
+    background-color: var(--main);
     color: white;
 }
 
@@ -130,7 +130,7 @@
 }
 
 .patient-list-table button {
-    background-color: var(--green-80);
+    background-color: var(--main-80);
     color: #f9f9f9;
     padding: 0.5rem 1rem;
     border: none;
@@ -147,7 +147,7 @@
 }
 
 .pagination-controls button {
-    background-color: var(--green-80);
+    background-color: var(--main-80);
     color: #f9f9f9;
     padding: 0.5rem 1rem;
     border: none;

@@ -19,11 +19,11 @@
 
 .search-input-containter-Patient-ID .search-title,
 .search-input-containter-Patient-CPR .search-title {
-  background-color: var(--green);
+  background-color: var(--main);
 }
 
 .search-input-containter-Vitals .search-title {
-  background-color: var(--grey-70);
+  background-color: var(--header-70);
 }
 
 .search-title {
@@ -39,11 +39,11 @@
 
 .search-input-containter-Patient-ID .search-input,
 .search-input-containter-Patient-CPR .search-input {
-  background-color: var(--grey-70);
+  background-color: var(--header-70);
 }
 
 .search-input-containter-Vitals .search-input {
-  background-color: var(--grey);
+  background-color: var(--header);
 }
 
 .search-input {

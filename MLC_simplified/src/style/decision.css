@@ -11,7 +11,7 @@
 }
 
 .decision-container h3 {
-  color: var(--green);
+  color: var(--main);
   text-decoration: underline;
   margin-top: 2%;
   font-size: 20px;
@@ -37,8 +37,8 @@
 
 .agree-button {
   background-color: transparent;
-  color: var(--green);
-  border: 2px solid var(--green);
+  color: var(--main);
+  border: 2px solid var(--main);
   font-weight: bold;
 }
 
@@ -51,13 +51,13 @@
 
 .dk-button {
   background-color: transparent;
-  color: var(--grey-95);
-  border: 2px solid var(--grey-95);
+  color: var(--header-95);
+  border: 2px solid var(--header-95);
   font-weight: bold;
 }
 
 .agree-button:hover{
-  background-color: var(--green);
+  background-color: var(--main);
   color: white;
 }
 
@@ -67,6 +67,6 @@
 }
 
 .dk-button:hover {
-  background-color: var(--grey-95);
+  background-color: var(--header-95);
   color: white;
 }

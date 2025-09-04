@@ -4,8 +4,8 @@
     position: fixed;        
     top: 0;                 
     left: 0;     
-    background-color: var(--grey);
-    border-right: var(--green) 2px solid;
+    background-color: var(--header);
+    border-right: var(--main) 2px solid;
     z-index: 1000;  
 }
 
@@ -27,7 +27,7 @@
     flex-direction: column;
     margin-top: 25%;
     padding-bottom: 20px;
-    border-bottom: 1px dashed var(--green);
+    border-bottom: 1px dashed var(--main);
 }
 
 .sidebar-corp {
@@ -44,15 +44,15 @@
 .logout-button {
     padding: 5px 15px;
     background-color: transparent;
-    border: 2px solid var(--green);
+    border: 2px solid var(--main);
     border-radius: 5px;
-    color: var(--green);
+    color: var(--main);
     cursor: pointer;
 }
 
 .logout-button:hover,
 .return-button:hover {
-    background-color: var(--green);
+    background-color: var(--main);
     color: #f9f9f9;
 }
 
@@ -71,7 +71,7 @@
 .account-info th {
     width: 50%;
     font-size: 20px;
-    color: var(--green);
+    color: var(--main);
     font-weight: bold;
     text-align: left;
 }
@@ -79,7 +79,7 @@
 .account-info td {
     width: 50%;
     font-size: 20px;
-    color: var(--green);
+    color: var(--main);
     text-align: right;
 }
 
@@ -96,7 +96,7 @@
 .sidebar-diagnosis h2,
 .sidebar-info-box h2 {
     font-size: 20px;
-    color: var(--green);
+    color: var(--main);
     font-weight: bold;
     text-align: center;
 }
@@ -104,12 +104,12 @@
 .sidebar-diagnosis p,
 .sidebar-info-box p {
     font-size: 20px;
-    color: var(--green);
+    color: var(--main);
     margin: 0;
 }
 
 .green-text {
-  color: var(--green) !important;
+  color: var(--main) !important;
 }
 
 .orange-text {
@@ -135,18 +135,18 @@
 .account-id th {
     width: 50%;
     font-size: 18px;
-    color: var(--green);
+    color: var(--main);
 }
 
 .account-id td {
     width: 50%;
     font-size: 14px;
-    color: var(--green);
+    color: var(--main);
 }
 
 .loading-text {
     font-size: 14px;
-    color: var(--green);
+    color: var(--main);
     font-style: italic;
 }
 

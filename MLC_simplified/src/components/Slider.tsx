@@ -46,7 +46,7 @@ export default function Slider({ onDecisionMade }: SliderProps) {
                         value={value ?? 0}
                         onChange={handleSliderChange}
                         style={{
-                          background: `linear-gradient(to right, var(--green) ${value ?? 0}%, #ccc ${value ?? 0}%)`
+                          background: `linear-gradient(to right, var(--main) ${value ?? 0}%, #ccc ${value ?? 0}%)`
                         }}
                     />
                     <p>{value !== null ? `${value}%` : '0%'}</p>

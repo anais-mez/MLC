@@ -11,7 +11,7 @@
   width: 95%;
   height: 82%;
   /* margin-top: 2%; */
-  background-color: var(--grey);
+  background-color: var(--header);
   border-radius: 5px;
   display: flex;
   align-items: center;
@@ -20,7 +20,7 @@
 }
 
 .prediction-AI h1 {
-  color: var(--green);
+  color: var(--main);
   margin: 1%;
   font-size: 28px;
 }

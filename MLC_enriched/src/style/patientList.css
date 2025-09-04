@@ -1,5 +1,5 @@
 .home-page {
-    background-color: #f9f9f9;
+    background-color: var(--background);
     width: 100%;
     height: 100vh;
     overflow: hidden;
@@ -35,14 +35,15 @@
     justify-content: start;
     align-items: center;
     gap: 1rem;
-    border-right: 1px dashed var(--green);
+    box-shadow: rgba(0, 0, 0, 0.1) 2px 0px 6px 0px;
     overflow-y: auto;
+    backdrop-filter: brightness(0.99);
 }
 
 .nav-filters h4 {
     width: 100%;
     text-align: center;
-    color: var(--green);
+    color: var(--main);
 }
 
 .nav-filters input,
@@ -56,8 +57,8 @@
 
 .reset-filters {
     padding: 0.5rem;
-    border: 1px solid var(--grey-95);
-    background-color: var(--grey-95);
+    border: 1px solid var(--reset-button);
+    background-color: var(--reset-button);
     color: white;
     border-radius: 5px;
     width: 42%;
@@ -66,8 +67,8 @@
 
 .search-button {
     padding: 0.5rem;
-    border: 1px solid var(--green-80);
-    background-color: var(--green-80);
+    border: 1px solid var(--main-80);
+    background-color: var(--main-80);
     color: white;
     border-radius: 5px;
     width: 42%;
@@ -75,14 +76,14 @@
 }
 
 .reset-filters:hover {
-    border: 1px solid var(--grey-70);
-    background-color: var(--grey-70);
+    border: 1px solid var(--reset-button-80);
+    background-color: var(--reset-button-80);
     color: white;
 }
 
 .search-button:hover {
-    border: 1px solid var(--green);
-    background-color: var(--green);
+    border: 1px solid var(--main);
+    background-color: var(--main);
     color: white;
 }
 
@@ -104,6 +105,7 @@
 .patient-list-table td {
     text-align: center;
     border: 1px solid #ddd;
+    background-color: var(--table-background);
     padding: 8px;
     white-space: nowrap;
     overflow: hidden;
@@ -128,12 +130,12 @@
 }
 
 .patient-list-table th {
-    background-color: #38502b;
+    background-color: var(--main);
     color: #f9f9f9;
 }
 
 .patient-list-table button {
-    background-color: var(--green-80);
+    background-color: var(--main-80);
     color: #f9f9f9;
     padding: 0.5rem 1rem;
     border: none;
@@ -150,7 +152,7 @@
 }
 
 .pagination-controls button {
-    background-color: var(--green-80);
+    background-color: var(--main-80);
     color: #f9f9f9;
     padding: 0.5rem 1rem;
     border: none;

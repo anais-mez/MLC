@@ -32,6 +32,8 @@ const WarningShapChart = ({ selectedPatientId }: Props) => {
   const [shapData, setShapData] = useState<ShapFeature[] | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const COLOR_RED = '#e5383b';
+  const COLOR_GREEN = '#6e9887';
 
   const handleTabChange = (tabName: string) => {
     setActiveTab(tabName);
@@ -100,7 +102,7 @@ const WarningShapChart = ({ selectedPatientId }: Props) => {
         data: sortedFeatures.map((f) => f.value),
         backgroundColor: (context: any) => {
           const value = context.dataset.data[context.dataIndex];
-          return value >= 0 ? '#38502b' : '#b4612A';
+          return value >= 0 ? COLOR_GREEN : COLOR_RED;
         },
       },
     ],
@@ -120,7 +122,7 @@ const WarningShapChart = ({ selectedPatientId }: Props) => {
           color: 'black',
         },
         grid: {
-          color: (ctx: any) => (ctx.tick.value === 0 ? '#38502b' : '#939480'),
+          color: (ctx: any) => (ctx.tick.value === 0 ? COLOR_GREEN : '#939480'),
           lineWidth: (ctx: any) => (ctx.tick.value === 0 ? 2 : 1),
         },
       },
@@ -131,7 +133,7 @@ const WarningShapChart = ({ selectedPatientId }: Props) => {
         ticks: {
           color: (context: any) => {
             const label = context.tick.label;
-            return label === 'Body Temperature' ? '#b4612A' : 'black';
+            return label === 'Body Temperature' ? COLOR_RED : 'black';
           },
           font: (ctx: any) => {
             const label = ctx.tick.label;
@@ -176,7 +178,7 @@ const WarningShapChart = ({ selectedPatientId }: Props) => {
         },
       },
       datalabels: {
-        color: '#d9d9d3',
+        color: '#f0f0f0',
         clamp: true,
         formatter: (value: number) => {
           if (Math.abs(value) < 0.08) return '';
@@ -242,8 +244,8 @@ const WarningShapChart = ({ selectedPatientId }: Props) => {
               <li>📊 <strong>Each bar</strong> represents one feature of the individual</li>
               <li>➡️ <strong>Bar to the right</strong> = <strong>increases the risk</strong> (harmful effect)</li>
               <li>⬅️ <strong>Bar to the left</strong> = <strong>reduces the risk</strong> (protective effect)</li>
-              <li><span style={{ color: '#38502b', fontSize: '22px' }}>■</span> <strong>Green</strong> = contributes to lowering the predicted risk</li>
-              <li><span style={{ color: '#b4612A', fontSize: '22px' }}>■</span> <strong>Orange</strong> = contributes to increasing the predicted risk</li>
+              <li><span style={{ color: COLOR_GREEN, fontSize: '22px' }}>■</span> <strong>Green</strong> = contributes to lowering the predicted risk</li>
+              <li><span style={{ color: COLOR_RED, fontSize: '22px' }}>■</span> <strong>Orange</strong> = contributes to increasing the predicted risk</li>
             </ul>
 
             <p className="info-note">
@@ -266,8 +268,8 @@ const WarningShapChart = ({ selectedPatientId }: Props) => {
               <Bar data={data} options={options} />
             </div>
             <div className="custom-legend">
-              <div><span style={{ backgroundColor: '#b4612A' }} className="legend-color"></span> Negative Contribution</div>
-              <div><span style={{ backgroundColor: '#38502b' }} className="legend-color"></span> Positive Contribution</div>
+              <div><span style={{ backgroundColor: COLOR_RED }} className="legend-color"></span> Negative Contribution</div>
+              <div><span style={{ backgroundColor: COLOR_GREEN }} className="legend-color"></span> Positive Contribution</div>
             </div>
           </div>
         );
