@@ -164,7 +164,7 @@ const WarningShapChart = ({ selectedPatientId }: Props) => {
       },
       title: {
         display: true,
-        text: '🔍 SHAP Values – Feature Impact on Prediction',
+        text: 'SHAP Values – Feature Impact on Prediction',
         color: '#222',
         font: {
           size: 16,
@@ -191,7 +191,7 @@ const WarningShapChart = ({ selectedPatientId }: Props) => {
             const index = context[0].dataIndex;
             const feature = sortedFeatures[index];
 
-            const rawValue =  feature.meta.split(':')[1]?.trim();
+            const rawValue = feature.meta.split(':')[1]?.trim();
             const roundedValue = rawValue ? parseFloat(rawValue).toFixed(2) : '';
 
             return `${feature.label}: ${roundedValue}`;
@@ -216,6 +216,12 @@ const WarningShapChart = ({ selectedPatientId }: Props) => {
               individualScopeWarning
             ];
           },
+        },
+        titleFont: {
+          size: 16,
+        },
+        bodyFont: {
+          size: 12
         },
       },
     },
