@@ -7,6 +7,7 @@
 
 .patient-table {
   width: 95%;
+  height: 82%;
   overflow-y: auto;
   overflow-x: hidden;
   margin-top: 3%;
@@ -36,7 +37,7 @@
 
 .patient-overview {
   width: 95%;
-  height: 85%;
+  height: 100%;
   background-color: var(--patient-table-80);
   display: flex;
   align-items: center;
@@ -93,12 +94,12 @@
 }
 
 .patient-info-table thead th {
-  border: 1px solid var(--patient-table-60);
+  border: 1px solid var(--patient-border);
   background-color: var(--patient-table);
 }
 
 .patient-info-table tbody td {
-  border: 1px solid var(--patient-table-60);
+  border: 1px solid var(--patient-border);
   font-size: 14px;
 }
 

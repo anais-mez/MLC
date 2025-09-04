@@ -32,6 +32,7 @@ const WarningShapChart = ({ selectedPatientId }: Props) => {
   const [shapData, setShapData] = useState<ShapFeature[] | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [probability, setProbability] = useState<number | null>(null);
   const COLOR_RED = '#e5383b';
   const COLOR_GREEN = '#6e9887';
 
@@ -69,13 +70,35 @@ const WarningShapChart = ({ selectedPatientId }: Props) => {
         return res.json();
       })
       .then((data) => {
-        console.log("Données reçues :", data);
         setShapData(data.shap_values);
         setLoading(false);
       })
       .catch((err) => {
         setError(`Error fetching SHAP data: ${err}`);
         setLoading(false);
+      });
+  }, [selectedPatientId]);
+
+  useEffect(() => {
+    if (!selectedPatientId) return;
+
+    const token = localStorage.getItem("token");
+
+    fetch(`http://localhost:8000/predict/${selectedPatientId}`, {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log("Prediction data received:", data);
+        if (data.prediction_proba !== undefined) {
+          setProbability(data.prediction_proba);
+        }
+      })
+      .catch(err => {
+        console.error("Error fetching prediction:", err);
+        setProbability(null);
       });
   }, [selectedPatientId]);
 
@@ -338,6 +361,16 @@ const WarningShapChart = ({ selectedPatientId }: Props) => {
         {renderTabContent()}
       </div>
 
+      <div className="probability">
+        <h3>Predicted Risk of Death in the next 30 days</h3>
+        {probability !== null ? (
+          <p>
+            {Math.round((1 - probability) * 100)}%
+          </p>
+        ) : (
+          <p>Loading...</p>
+        )}
+      </div>
     </div>
   );
 };

@@ -51,7 +51,7 @@ export default function Patient({ selectedPatientId }: Props) {
         <div className="patient-container">
             <div className="patient-overview">
                 <div className="patient-header">
-                    <h1>Patient Overview</h1>
+                    <h1>Patient {selectedPatientId}: Overview</h1>
                 </div>
                 <div className="patient-search">
                     <SearchBar searchTitle="Vitals" onSearch={setSearchValue} />

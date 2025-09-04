@@ -19,6 +19,8 @@ export default function Prediction({ selectedPatientId, updatePatientState, curr
           // <DivergingBarChart selectedPatientId={selectedPatientId} />
         )}
       </div>
+      <div style={{ height: '20px' }}>
+      </div>
       <Decision
         selectedPatientId={selectedPatientId}
         updatePatientState={updatePatientState}

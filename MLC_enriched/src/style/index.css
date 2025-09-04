@@ -1,13 +1,14 @@
 :root{
   --main : #403d39;
   --patient-table: #8b8c89;
+  --patient-table-dark: #757673;
   --header: #dce1e2;
   --background: #edf2fb;
   --reset-button: #bfc0c0;
   --table-background: #f6fcff;
   --table-background-alt: #e8e8e8;
   --prediction-background: #f0f0f0;
-  --patient-table-60: #4a5653;
+  --patient-border: #4a5653;
 
   --main-80: color-mix(in srgb, transparent, var(--main) 80%);
   --reset-button-80: color-mix(in srgb, transparent, var(--reset-button) 80%);
@@ -28,16 +29,9 @@
   padding: 0;
 }
 
-body * {
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
 .dashboard {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  height: calc(100% - 80px);
+  height: calc(100% - 135px);
+  padding: 25px;
 }
 
 .data-view {
@@ -46,7 +40,6 @@ body * {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
 }
 
 body {
@@ -62,9 +55,9 @@ body {
   flex-direction: column;
   align-items: center;
   width: 60%;
-  background-color: var(--header);
+  background-color: var(--prediction-background);
   padding: 1rem;
-  border: 1px solid var(--main);
+  border: 1px solid var(--prediction-background);
   border-radius: 5px;
 }
 
