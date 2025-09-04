@@ -135,7 +135,6 @@ function DashboardApp() {
 
   return (
     <StrictMode>
-      <div className="main-container">
         <Navbar
           selectedPatientId={selectedPatientId}
           setSelectedPatientId={setSelectedPatientId}
@@ -218,7 +217,6 @@ function DashboardApp() {
             )}
           </div>
         </div>
-      </div>
     </StrictMode>
   );
 }
