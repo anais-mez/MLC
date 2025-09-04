@@ -10,6 +10,7 @@ import Patient from './Patient'
 import Prediction from './Prediction'
 import Slider from './components/Slider'
 import Modal from './components/Modal'
+import Navbar from './components/Navbar';
 
 export type PatientState = {
   step: number;
@@ -100,10 +101,16 @@ function DashboardApp() {
 
   if (!selectedPatientId) {
     return (
-      <PatientList
-        onSelectPatient={(id: string) => setSelectedPatientId(id)}
-        patientStatuses={patientStatuses}
-      />
+      <>
+        <Navbar
+          selectedPatientId={selectedPatientId}
+          setSelectedPatientId={setSelectedPatientId}
+        />
+        <PatientList
+          onSelectPatient={(id: string) => setSelectedPatientId(id)}
+          patientStatuses={patientStatuses}
+        />
+      </>
     );
   }
 
@@ -129,10 +136,9 @@ function DashboardApp() {
   return (
     <StrictMode>
       <div className="main-container">
-        <Sidebar
+        <Navbar
           selectedPatientId={selectedPatientId}
           setSelectedPatientId={setSelectedPatientId}
-          showAIPrediction={currentPatientState?.showAIPrediction}
         />
         <div className="dashboard">
           <div className="data-view">

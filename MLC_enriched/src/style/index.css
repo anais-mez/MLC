@@ -16,7 +16,7 @@
 }
 
 .dashboard {
-  margin-left: 18%;
+  margin-top: 80px;
   display: flex;
   flex-direction: column;
   width: 82%;
@@ -36,6 +36,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
   margin: 0;
+  padding: 0;
   font-family: 'Inter', sans-serif;
 }
 
