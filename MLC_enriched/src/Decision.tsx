@@ -40,7 +40,7 @@ export default function Decision({ selectedPatientId, updatePatientState, curren
 
     return (
         <div className="decision-container">
-            <h3>Did you agreee with the AI prediction ?</h3>
+            <h3>Do you agree with the AI's reasoning and prediction for this patient?</h3>
             <div className="buttons">
                 <button className="disagree-button" onClick={() => handleInitialChoice("Disagree")}>I Disagree</button>
                 <button className="dk-button" onClick={() => handleInitialChoice("Not Sure")}>I'm Not Sure</button>
