@@ -47,7 +47,7 @@ export default function Decision({ selectedPatientId, updatePatientState, curren
                 <button className="agree-button" onClick={() => handleInitialChoice("Agree")}>I Agree</button>
             </div>
 
-            <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+            <Modal isOpen={isModalOpen}>
                 <h4>Please briefly explain your choice:</h4>
                 <textarea
                     value={reason}
@@ -57,7 +57,6 @@ export default function Decision({ selectedPatientId, updatePatientState, curren
                 />
                 <div className="modal-buttons">
                     <button onClick={handleModalSubmit} className="submit-button">Submit</button>
-                    <button onClick={() => setIsModalOpen(false)} className="cancel-button">Cancel</button>
                 </div>
             </Modal>
         </div>

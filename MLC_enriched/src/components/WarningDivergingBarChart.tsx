@@ -192,7 +192,7 @@ const WarningShapChart = ({ selectedPatientId }: Props) => {
         text: 'Impact of Medical Factors on the AI\'s Prediction',
         color: '#222',
         font: {
-          size: 16,
+          size: 18,
           weight: 'bold' as const,
         },
         padding: {
@@ -257,30 +257,28 @@ const WarningShapChart = ({ selectedPatientId }: Props) => {
       case "chart1":
         return (
           <div className="tab-1-content">
-            <h3>🧠 What is a SHAP plot?</h3>
-            <p>
-              It explains which variables most influenced the model's prediction for this specific case.
+            <h3 className="instructions-title">🧠 What is a SHAP plot?</h3>
+            <p className="instructions-note">
+              It shows the most influential factiors on this specific prediction.
             </p>
 
-            <h3>🔍 How to read it</h3>
+            <h3 className="instructions-title">🔍 How to read it</h3>
             <ul className="no-dot">
-              <li>📊 <strong>Each bar</strong> represents one feature of the individual</li>
-              <li>➡️ <strong>Bar to the right</strong> = <strong>increases the risk</strong> (harmful effect)</li>
-              <li>⬅️ <strong>Bar to the left</strong> = <strong>reduces the risk</strong> (protective effect)</li>
-              <li><span style={{ color: COLOR_GREEN, fontSize: '22px' }}>■</span> <strong>Green</strong> = contributes to lowering the predicted risk</li>
-              <li><span style={{ color: COLOR_RED, fontSize: '22px' }}>■</span> <strong>Orange</strong> = contributes to increasing the predicted risk</li>
+              <li>📊 <strong>Each bar</strong> an influential factor on the prediction</li>
+              <li>➡️ <strong>Red Bar to the right</strong> = <strong>increases the risk of death</strong> (harmful effect)</li>
+              <li>⬅️ <strong>Green Bar to the left</strong> = <strong>reduces the risk</strong> (protective effect)</li>
             </ul>
 
             <p className="info-note">
-              📉 The longer the bar, the stronger the impact of the feature on the model’s prediction.
+              📉 The longer the bar, the stronger the impact on the model’s prediction.
             </p>
 
-            <h3>⚠️ Keep in mind</h3>
-            <ul>
-              <li>This is not causality</li>
-              <li>This is not a clinical diagnosis</li>
+            <h3 className="instructions-title">⚠️ Keep in mind</h3>
+            <ul className="instructions-note">
+              <li>The explanation does not prove what caused the outcome.</li>
+              <li>This is not diagnosis, just an explanation of the model.</li>
               <li>This only explains one individual case</li>
-              <li>This chart is adapted for readability. Directions and colors are chosen to reflect medical risk interpretation — not the raw SHAP convention.</li>
+              <li>This chart is adapted for readability. Directions and colors reflect the model's medical risk interpretation.</li>
             </ul>
           </div>
         );
@@ -301,7 +299,7 @@ const WarningShapChart = ({ selectedPatientId }: Props) => {
           <div className="tab-3-content">
             <h3>⚠️ Important Reminder</h3>
             <p>
-              SHAP helps explain the model — it doesn’t diagnose the patient or prove causality.
+              SHAP helps explain a prediction, it doesn't diagnose or prove the cause.
             </p>
 
             <h4>🚫 What SHAP doesn’t tell you:</h4>

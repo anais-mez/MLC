@@ -85,28 +85,46 @@
   display: flex;
   justify-content: center;
   width: 95%;
-  min-height: 65%;
+  min-height: 67%;
 }
 
 .tab-content h3 {
   color: var(--main);
   margin-top: 0;
   margin-bottom: 2%;
-  font-size: 22px;
+  font-size: 24px;
 }
 
 .tab-content h4 {
   color: var(--main-80);
   margin-top: 2%;
-  font-size: 20px;
+  font-size: 22px;
 }
 
 .tab-content p {
-  font-size: 14px;
+  font-size: 15px;
+}
+
+.instructions-note {
+  font-size: 17px !important;
+}
+
+.no-dot {
+  list-style: none;
+  font-size: 17px !important;
+}
+
+.info-note {
+  font-size: 17px !important;
+}
+
+.instructions-title {
+  font-size: 25px !important;
+  margin-top: 20px !important;
 }
 
 .tab-content ul {
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .probability {
@@ -154,10 +172,6 @@
   margin-top: 10px;
   width: 95%;
   height: 75%;
-}
-
-.no-dot {
-  list-style: none;
 }
 
 .post-note {
