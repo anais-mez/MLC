@@ -46,7 +46,7 @@
 /* Conteneur des boutons */
 .modal-buttons {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-around;
   gap: 10px;
   margin-top: 20px;
 }
@@ -60,4 +60,15 @@
   &:hover {
     background-color: var(--reset-button);
   }
+}
+
+textarea {
+  width: 97%;
+  height: 100px;
+  margin-top: 10px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  resize: vertical;
 }
