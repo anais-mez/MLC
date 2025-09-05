@@ -1,17 +1,15 @@
 .prediction-container {
   width: 67%;
-  height: 96vh;
+  height: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
 }
 
 .prediction-AI {
   width: 95%;
-  height: 82%;
-  /* margin-top: 2%; */
-  background-color: var(--header);
+  height: 100%;
+  background-color: var(--prediction-background);
   border-radius: 5px;
   display: flex;
   align-items: center;

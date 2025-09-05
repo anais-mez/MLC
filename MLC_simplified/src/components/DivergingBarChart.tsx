@@ -31,6 +31,9 @@ const ShapChart = ({ selectedPatientId }: Props) => {
   const [shapData, setShapData] = useState<ShapFeature[] | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [probability, setProbability] = useState<number | null>(null);
+  const COLOR_RED = '#e5383b';
+  const COLOR_GREEN = '#6e9887';
 
   const ErrorMessage = ({ message }: { message: string }) => (
     <div className="error-message">
@@ -66,6 +69,29 @@ const ShapChart = ({ selectedPatientId }: Props) => {
       });
   }, [selectedPatientId]);
 
+  useEffect(() => {
+    if (!selectedPatientId) return;
+
+    const token = localStorage.getItem("token");
+
+    fetch(`http://localhost:8000/predict/${selectedPatientId}`, {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log("Prediction data received:", data);
+        if (data.prediction_proba !== undefined) {
+          setProbability(data.prediction_proba);
+        }
+      })
+      .catch(err => {
+        console.error("Error fetching prediction:", err);
+        setProbability(null);
+      });
+  }, [selectedPatientId]);
+
   if (loading) return <Loader />;
   if (error || !shapData) return <ErrorMessage message={"The necessaries data are not available for the SHAP explanation."} />;
 
@@ -87,7 +113,7 @@ const ShapChart = ({ selectedPatientId }: Props) => {
         data: sortedFeatures.map((feature) => feature.value),
         backgroundColor: (context: any) => {
           const value = context.dataset.data[context.dataIndex];
-          return value >= 0 ? '#38502b' : '#b4612A';
+          return value >= 0 ? COLOR_GREEN : COLOR_RED;
         },
       },
     ],
@@ -107,7 +133,7 @@ const ShapChart = ({ selectedPatientId }: Props) => {
           color: 'black',
         },
         grid: {
-          color: (ctx: any) => (ctx.tick.value === 0 ? '#38502b' : '#939480'),
+          color: (ctx: any) => (ctx.tick.value === 0 ? COLOR_GREEN : '#939480'),
           lineWidth: (ctx: any) => (ctx.tick.value === 0 ? 2 : 1),
         },
       },
@@ -118,7 +144,7 @@ const ShapChart = ({ selectedPatientId }: Props) => {
         ticks: {
           color: (context: any) => {
             const label = context.tick.label;
-            return label === 'Body Temperature' ? '#b4612A' : 'black';
+            return label === 'Body Temperature' ? COLOR_RED : 'black';
           },
           font: (ctx: any) => {
             const label = ctx.tick.label;
@@ -151,7 +177,7 @@ const ShapChart = ({ selectedPatientId }: Props) => {
       },
       title: {
         display: true,
-        text: '🔍 SHAP Values – Feature Impact on Prediction',
+        text: "Impact of Medical Factors on the AI's Prediction",
         color: '#222',
         font: {
           size: 16,
@@ -174,24 +200,28 @@ const ShapChart = ({ selectedPatientId }: Props) => {
       },
       tooltip: {
         callbacks: {
-          label: (context: any) => {
-            const index = context.dataIndex;
+          title: (context: any) => {
+            const index = context[0].dataIndex;
             const feature = sortedFeatures[index];
+
+            const rawValue = feature.meta.split(':')[1]?.trim();
+            const roundedValue = rawValue ? parseFloat(rawValue).toFixed(2) : '';
+
+            return `${feature.label}: ${roundedValue}`;
+          },
+          label: (context: any) => {
             const val = context.parsed.x;
 
-            // Add a special note for a feature
-            const extra =
-              feature.label === 'Body Temperature'
-                ? '\n⚠️ Indicator not to be taken into account'
-                : '';
-
             return [
-              `Feature: ${feature.label}`,
               `SHAP Value: ${val >= 0 ? '+' : ''}${val.toFixed(2)}`,
-              `Info: ${feature.meta}`,
-              extra
             ];
           },
+        },
+        titleFont: {
+          size: 16,
+        },
+        bodyFont: {
+          size: 12
         },
       },
     },
@@ -199,15 +229,15 @@ const ShapChart = ({ selectedPatientId }: Props) => {
 
   return (
     <div className="chart-container">
-      <h2 className="bar-chart-title">Top features influencing this prediction</h2>
+      <h2 className="bar-chart-title">Key Medical Factors Influencing the AI Prediction</h2>
 
       <div className="bar-content">
         <div className="bar">
           <Bar data={data} options={options} />
         </div>
         <div className="custom-legend">
-          <div><span style={{ backgroundColor: '#b4612A' }} className="legend-color"></span> Negative Contribution</div>
-          <div><span style={{ backgroundColor: '#38502b' }} className="legend-color"></span> Positive Contribution</div>
+          <div><span style={{ backgroundColor: COLOR_RED }} className="legend-color"></span> Negative Contribution</div>
+          <div><span style={{ backgroundColor: COLOR_GREEN }} className="legend-color"></span> Positive Contribution</div>
         </div>
       </div>
 
@@ -220,6 +250,16 @@ const ShapChart = ({ selectedPatientId }: Props) => {
         </p>
       </div>
 
+      <div className="probability">
+        <h3>Predicted Risk of Death in the next 30 days</h3>
+        {probability !== null ? (
+          <p>
+            {Math.round((1 - probability) * 100)}%
+          </p>
+        ) : (
+          <p>Loading...</p>
+        )}
+      </div>
     </div>
   );
 };

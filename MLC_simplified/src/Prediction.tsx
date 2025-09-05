@@ -13,11 +13,12 @@ export default function Prediction({ selectedPatientId, updatePatientState, curr
   return (
     <div className="prediction-container">
       <div className="prediction-AI">
-        <h1>SHAP Explanation</h1>
+        <h1>AI Prediction Explanation</h1>
         {selectedPatientId && (
           <DivergingBarChart selectedPatientId={selectedPatientId} />
         )}
       </div>
+      <div style={{ height: '20px' }}></div>
       <Decision
         selectedPatientId={selectedPatientId}
         updatePatientState={updatePatientState}

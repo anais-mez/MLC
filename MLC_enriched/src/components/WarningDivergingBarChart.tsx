@@ -12,7 +12,7 @@ import {
   Tooltip,
   Title,
   type Align,
-} from 'chart.js';
+} from 'chart.js'; 
 
 ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Title, ChartDataLabels);
 
@@ -189,7 +189,7 @@ const WarningShapChart = ({ selectedPatientId }: Props) => {
       },
       title: {
         display: true,
-        text: 'SHAP Values – Feature Impact on Prediction',
+        text: 'Impact of Medical Factors on the AI\'s Prediction',
         color: '#222',
         font: {
           size: 16,
@@ -334,7 +334,7 @@ const WarningShapChart = ({ selectedPatientId }: Props) => {
 
   return (
     <div className="warning-chart-container">
-      <h2 className="warning-bar-chart-title">Top features influencing this prediction</h2>
+      <h2 className="warning-bar-chart-title">Key Medical Factors Influencing the AI Prediction</h2>
 
       <div className="tabs">
         <button

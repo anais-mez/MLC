@@ -2,7 +2,6 @@ import SearchBar from "./components/Searchbar"
 import { useEffect, useState } from "react";
 import Loader from "./components/Loader";
 import "./style/patient.css"
-import "./style/searchbar.css"
 
 type PatientVitals = {
     [key: string]: string | number | null;
@@ -52,7 +51,7 @@ export default function Patient({ selectedPatientId }: Props) {
         <div className="patient-container">
             <div className="patient-overview">
                 <div className="patient-header">
-                    <h1>Patient Overview</h1>
+                    <h1>Patient {selectedPatientId}: Overview</h1>
                 </div>
                 <div className="patient-search">
                     <SearchBar searchTitle="Vitals" onSearch={setSearchValue} />

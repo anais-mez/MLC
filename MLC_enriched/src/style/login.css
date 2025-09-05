@@ -36,7 +36,7 @@
 .login-form button {
     width: 65%;
     padding: 0.7rem;
-    background-color: #38502b;
+    background-color: var(--main);
     color: white;
     border: none;
     border-radius: 5px;

@@ -101,47 +101,33 @@ export default function PatientList({ onSelectPatient, patientStatuses }: Patien
 
     return (
         <div className="home-page">
-            <div className="navbar">
-                <div className="sidebar-header">
-                    <div className="buttons">
-                        <div className='column-50'>
-                        </div>
-                        <div className='column-50'>
-                            <button className="logout-button" title='Logout' onClick={handleLogout}>
-                                LOG OUT
-                            </button>
-                        </div>
-                    </div>
-                    <h1>List of Patients</h1>
-                </div>
-                <div className="nav-filters">
-                    <h4>Filters</h4>
-                    <input
-                        type="text"
-                        placeholder="Search by ID"
-                        value={searchIdInput}
-                        onChange={(e) => setSearchIdInput(e.target.value)}
-                    />
-                    <input
-                        type="number"
-                        placeholder="Minimum Age"
-                        value={ageMinInput}
-                        onChange={(e) => setAgeMinInput(e.target.value)}
-                    />
-                    <input
-                        type="number"
-                        placeholder="Maximum Age"
-                        value={ageMaxInput}
-                        onChange={(e) => setAgeMaxInput(e.target.value)}
-                    />
-                    <div className="research-buttons">
-                        <button onClick={resetFilters} className="reset-filters">
-                            Reset
-                        </button>
-                        <button onClick={handleSearch} className="search-button">
-                            Search
-                        </button>
-                    </div>
+            <div className="nav-filters">
+                <h4>Filters</h4>
+                <input
+                    type="text"
+                    placeholder="Search by ID"
+                    value={searchIdInput}
+                    onChange={(e) => setSearchIdInput(e.target.value)}
+                />
+                <input
+                    type="number"
+                    placeholder="Minimum Age"
+                    value={ageMinInput}
+                    onChange={(e) => setAgeMinInput(e.target.value)}
+                />
+                <input
+                    type="number"
+                    placeholder="Maximum Age"
+                    value={ageMaxInput}
+                    onChange={(e) => setAgeMaxInput(e.target.value)}
+                />
+                <div className="research-buttons">
+                    <button onClick={resetFilters} className="reset-filters">
+                        Reset
+                    </button>
+                    <button onClick={handleSearch} className="search-button">
+                        Search
+                    </button>
                 </div>
             </div>
             <div className="patient-list-page">

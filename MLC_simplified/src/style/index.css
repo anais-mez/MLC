@@ -1,25 +1,37 @@
 :root{
-  --main : #38502b;
+  --main : #403d39;
+  --patient-table: #8b8c89;
+  --patient-table-dark: #757673;
+  --header: #dce1e2;
+  --background: #edf2fb;
+  --reset-button: #bfc0c0;
+  --table-background: #f6fcff;
+  --table-background-alt: #e8e8e8;
+  --prediction-background: #f0f0f0;
+  --patient-border: #4a5653;
+
+  --main-80: color-mix(in srgb, transparent, var(--main) 80%);
+  --reset-button-80: color-mix(in srgb, transparent, var(--reset-button) 80%);
+  --patient-table-80: color-mix(in srgb, transparent, var(--patient-table) 80%);
+  --header-95: color-mix(in srgb, transparent, var(--header) 95%);
+  --header-70: color-mix(in srgb, transparent, var(--header) 70%);
+
   --orange: #b4612A;
   --red: #e01818;
-  --header: #d9d9d3;
-  --main-80: rgba(56, 80, 43, 0.8);
-  --header-95: rgba(147, 148, 128, 0.95);
-  --header-70: rgba(147, 148, 128, 0.7);
   --orange-80: rgba(180, 97, 42, 0.8);
   --sand: rgba(207, 198, 184, 1);
 }
 
 #root {
   width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .dashboard {
-  margin-left: 18%;
-  display: flex;
-  flex-direction: column;
-  width: 82%;
-  height: 100%;
+  height: calc(100% - 135px);
+  padding: 25px;
 }
 
 .data-view {
@@ -28,13 +40,12 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
 }
 
 body {
-  min-width: 320px;
-  min-height: 100vh;
+  height: 100vh;
   margin: 0;
+  padding: 0;
   font-family: 'Inter', sans-serif;
 }
 
@@ -44,9 +55,9 @@ body {
   flex-direction: column;
   align-items: center;
   width: 60%;
-  background-color: var(--header);
+  background-color: var(--prediction-background);
   padding: 1rem;
-  border: 1px solid var(--main);
+  border: 1px solid var(--prediction-background);
   border-radius: 5px;
 }
 
